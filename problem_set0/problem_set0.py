@@ -41,7 +41,32 @@ def hello_world():
     name = 'Matilda'
     print name[2:]
     
+    print len(mylist)
     
+    startlist = [1,5,6,7,1,12,5,2,7,8,9]
+    cutoff = 5
+    smallvals=[]
+    largevals=[]
+    
+    
+    x= len(startlist)
+    
+    
+    for i in range(x):
+           if(startlist[i]<cutoff):
+               ##print startlist[i]
+               smallvals.append(startlist[i])                    
+           else:
+               ##print startlist[i]
+               largevals.append(startlist[i])
+               
+    
+    smallvals.sort()
+    largevals.sort()
+
+    print smallvals
+    print largevals
+           
     
     return "hello, world"
 
