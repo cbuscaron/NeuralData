@@ -75,6 +75,14 @@ def hello_world():
     
 def print_hello(name):
     return "Hello" + name +"!"
+    
+    
+def median(datalist):
+    datalist.sort()
+    if(len(datalist)%2):
+        return datalist[len(datalist)/2]
+    else:
+        return
 
 
 
