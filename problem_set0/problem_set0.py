@@ -67,8 +67,14 @@ def hello_world():
     print smallvals
     print largevals
            
+           
+    print print_hello("Young CLO")
     
     return "hello, world"
+    
+    
+def print_hello(name):
+    return "Hello" + name +"!"
 
 
 
