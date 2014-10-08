@@ -70,10 +70,10 @@ def hello_world():
            
     print print_hello("Young CLO")
     
-    help(median)
+    ##help(median)
     
     import numpy as np
-    import matplotlib
+    ##import matplotlib
     import matplotlib.pyplot as plt
     
     ##%matplotlib inline
@@ -84,6 +84,8 @@ def hello_world():
     plt.show()
     
     
+    
+    
     return "hello, world"
     
     
@@ -91,17 +93,7 @@ def print_hello(name):
     return "Hello" + name +"!"
     
     
-def median(datalist):
-    """find median of a list of numbers and return it
-    for lists with an odd number of elements, this is mid value of the list
-    for lists with an even number of elements, this is the mean of the two mid values
-    SIDE EFFECT: datalist is sorted in this function"""    
-    
-    datalist.sort()
-    if(len(datalist)%2):
-        return datalist[len(datalist)/2]
-    else:
-        return ((datalist[len(datalist)/2-1]+datalist[len(datalist)/2])/2.0)
+
         
         
 
