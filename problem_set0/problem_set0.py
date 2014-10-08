@@ -72,6 +72,18 @@ def hello_world():
     
     help(median)
     
+    import numpy as np
+    import matplotlib
+    import matplotlib.pyplot as plt
+    
+    ##%matplotlib inline
+    
+    x= np.linspace(0,3*np.pi,500)
+    plt.plot(x, np.sin(x))
+    plt.title("A Sinewave")
+    plt.show()
+    
+    
     return "hello, world"
     
     
