@@ -3,7 +3,8 @@
 '''
 Part 1: Write a function that returns the string "hello, world"
 '''
-
+import numpy as np
+import matplotlib.pyplot as plt
 def hello_world():
     
     title = "how to find a circle's area"
@@ -91,6 +92,17 @@ def hello_world():
     
 def print_hello(name):
     return "Hello" + name +"!"
+    
+def create_waveform(times, data):
+    plt.plot(times, data, 'g-')
+    plt.title('waveform')    
+    
+def add_line(yval):
+    """Add Horizontal line at particular location"""
+    plt.axhline(y=yval)
+    
+    
+    
     
     
 
