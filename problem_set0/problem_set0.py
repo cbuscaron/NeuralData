@@ -70,6 +70,8 @@ def hello_world():
            
     print print_hello("Young CLO")
     
+    help(median)
+    
     return "hello, world"
     
     
@@ -78,11 +80,18 @@ def print_hello(name):
     
     
 def median(datalist):
+    """find median of a list of numbers and return it
+    for lists with an odd number of elements, this is mid value of the list
+    for lists with an even number of elements, this is the mean of the two mid values
+    SIDE EFFECT: datalist is sorted in this function"""    
+    
     datalist.sort()
     if(len(datalist)%2):
         return datalist[len(datalist)/2]
     else:
-        return
+        return ((datalist[len(datalist)/2-1]+datalist[len(datalist)/2])/2.0)
+        
+        
 
 
 
