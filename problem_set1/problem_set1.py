@@ -86,10 +86,13 @@ def good_AP_finder(time,voltage):
     ##K = 10 ##Tunning Window
     ##for x in range(len(voltage)):
       ##  if(voltage[x]>100):
+    
+    Thold = round(max(voltage)/3) + 3
+    ##print Thold
     for x in range(len(voltage)):
         if (x<len(voltage)-1):
             if((voltage[x]>voltage[x-1]) & (voltage[x]>voltage[x+1])):
-                if(voltage[x]>(37)):               
+                if(voltage[x]>(Thold)):               
                     APTimes.append(time[x])
             
             
