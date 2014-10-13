@@ -5,6 +5,9 @@ Part 1: Write a function that returns the string "hello, world"
 '''
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy as signal
+
+
 def hello_world():
     
     title = "how to find a circle's area"

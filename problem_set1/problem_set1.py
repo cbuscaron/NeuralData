@@ -9,6 +9,7 @@
 
 import numpy as np
 import matplotlib.pylab as plt
+import scipy as signal
 
 def load_data(filename):
     """
@@ -22,6 +23,7 @@ def load_data(filename):
     
 def bad_AP_finder(time,voltage):
     """
+    
     This function takes the following input:
         time - vector where each element is a time in seconds
         voltage - vector where each element is a voltage at a different time
@@ -80,6 +82,19 @@ def good_AP_finder(time,voltage):
         return APTimes
     
     ##Your Code Here!
+    
+    ##K = 10 ##Tunning Window
+    ##for x in range(len(voltage)):
+      ##  if(voltage[x]>100):
+    for x in range(len(voltage)):
+        if (x<len(voltage)-1):
+            if((voltage[x]>voltage[x-1]) & (voltage[x]>voltage[x+1])):
+                if(voltage[x]>(37)):               
+                    APTimes.append(time[x])
+            
+            
+    ##print len(APTimes)
+        
     
     return APTimes
     
@@ -149,7 +164,17 @@ def plot_spikes(time,voltage,APTimes,titlestr):
     """
     plt.figure()
     
-    ##Your Code Here    
+    ##Your Code Here 
+    plt.plot(time, voltage)
+    plt.title(titlestr)
+    plt.xlabel('Time (s)')
+    plt.ylabel('Voltage (uV)')
+    plt.hold(True)
+    
+    for x in range(len(APTimes)):
+        plt.plot(APTimes[x],max(voltage), 'r|')
+       ## print APTimes[apt]
+        ##print apt
     
     plt.show()
     
@@ -163,8 +188,27 @@ def plot_waveforms(time,voltage,APTimes,titlestr):
    
     plt.figure()
    
-    ## Your Code Here   
-   
+    ## Your Code Here 
+    indices = []
+    
+    for x in range(len(APTimes)):
+        for i in range(len(time)):
+            if(time[i]==APTimes[x]):
+                indices.append(i)
+            
+
+    ##print indices
+    Xval = np.linspace(-.003,.003,200)
+    print len(Xval)
+    for x in range(len(APTimes)):
+        plt.plot(Xval, voltage[indices[x]-100:indices[x]+100])
+        plt.title(titlestr)
+        plt.xlabel('Time (s)')
+        plt.ylabel('Voltage (uV)')
+        plt.hold(True)
+
+    
+    
     plt.show()
     
 
