@@ -87,8 +87,8 @@ def good_AP_finder(time,voltage):
     ##for x in range(len(voltage)):
       ##  if(voltage[x]>100):
     
-    Thold = round(max(voltage)/3) + 3
-    ##print Thold
+    Thold = round(max(voltage)/2) 
+    print Thold
     for x in range(len(voltage)):
         if (x<len(voltage)-1):
             if((voltage[x]>voltage[x-1]) & (voltage[x]>voltage[x+1])):
@@ -213,6 +213,27 @@ def plot_waveforms(time,voltage,APTimes,titlestr):
     
     
     plt.show()
+    
+
+    
+def get_voltages(time,voltage, APTimes):
+    APVoltage = []
+    for x in range(len(APTimes)):
+        for i in range(len(time)):
+            if(APTimes[x]==time[i]):
+                APVoltage.append(i)
+        
+        
+        
+    for x in range(len(APVoltage)):
+        if(time[APVoltage[x]] != APTimes[x]):
+            print 'False'
+        else:
+            print 'True'
+            
+            
+            
+    return APVoltage
     
 
         
