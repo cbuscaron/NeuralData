@@ -49,3 +49,39 @@ plt.plot(x,y,'o',hold=True)
 t = np.array([0,10])
 plt.plot(t,p[0]*t*p[1])
 
+plt.show()
+
+
+mean = 0.0
+var = 1.0
+sigma = np.sqrt(var)
+x = np.linspace(-4,4,80)
+
+plt.plot(x,mlab.normpdf(x,mean,sigma))
+plt.show()
+
+
+n = 20
+x = np.linspace(-4,4,n)
+jitter_amp =.1
+jitter = jitter_amp*(np.random.random(n)-.5)
+y= mlab.normpdf(x,mean,sigma)+jitter
+plt.plot(x,y,'o')
+plt.show()
+
+def normal_fit(t,mean,sigma):
+        return mlab.normpdf(t,mean,sigma)
+        
+        
+        
+p, conv= optimize.curve_fit(normal_fit, x, y)
+
+print p
+
+
+plt.plot(x,y,'o',hold = True)
+plt.plot(x,normal_fit(x,p[0],p[1]), '-')
+plt.legend(['Original', 'fit'])
+plt.show()
+
+
