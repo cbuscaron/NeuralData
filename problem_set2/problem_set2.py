@@ -1,7 +1,8 @@
 #
 #  NAME
 #    problem_set2_solutions.py
-#
+#    Camilo Buscaron 10/27/2014
+
 #  DESCRIPTION
 #    Open, view, and analyze action potentials recorded during a behavioral
 #    task.  In Problem Set 2, you will write create and test your own code to
@@ -48,7 +49,57 @@ def bin_spikes(trials, spk_times, time_bin):
     for each direction
     """
     
+    spikes_per_trial =[]
+    
+    i = 0
+    
+    for y in range(len(trials)):
+        for x in range(len(spk_times)):
+            if((spk_times[x]>= trials[y,1] - time_bin) & (spk_times[x]<= trials[y,1] + time_bin)):
+                i = i + 1
+        spikes_per_trial.append(i)
+        i = 0
+    
+    
+    directions = np.arange(0,360,45)
+    
+    ##print(len(directions))
+    ##print directions
+    
+    numberperdirection = []
+    i = 0
+    
+    averageovertrials = []
+    w = 0
+    
+    dir_rate =[]
+    
+    
+    for y in range(len(directions)):
+        for x in range(len(trials)):
+            if(directions[y]==trials[x,0]):
+                i = spikes_per_trial[x] + i
+                w = w + 1
+        averageovertrials.append((i/float(w))) 
+        dir_rate.append((i/float(w))/(time_bin*2))
+        numberperdirection.append(i)
+        i=0
+        w=0
+        
+    
+    dir_rates = np.column_stack((directions,dir_rate))
+        
+    print(len(numberperdirection))
+    print numberperdirection
+    
+    print(len(averageovertrials))
+    print averageovertrials
+    
+    print(len(dir_rate))
+    print dir_rate
+    
     return dir_rates
+    ##return dir_rates
     
 def plot_tuning_curves(direction_rates, title):
     """
