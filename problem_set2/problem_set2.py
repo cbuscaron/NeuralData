@@ -1,5 +1,5 @@
 #
-#  Camilo Buscaron 10/18/2014
+#  
 #    problem_set2_solutions.py
 #    Camilo Buscaron 10/27/2014
 
