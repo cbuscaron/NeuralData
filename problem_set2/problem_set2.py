@@ -1,12 +1,11 @@
 #
-#  NAME
+#  Camilo Buscaron 10/18/2014
 #    problem_set2_solutions.py
 #    Camilo Buscaron 10/27/2014
 
 #  DESCRIPTION
 #    Open, view, and analyze action potentials recorded during a behavioral
-#    task.  In Problem Set 2, you will write create and test your own code to
-#    create tuning curves.
+#    task. Code to create tuning curves.
 #
 
 #Helper code to import some functions we will use
